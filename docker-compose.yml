@@ -1,0 +1,93 @@
+version: "3.3"
+
+services:
+  psql:
+    image: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: 123456
+    command: postgres -c max_locks_per_transaction=2000
+    networks:
+      - dichori
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
+    networks:
+      - dichori
+  gateway:
+    build:
+      dockerfile: Dockerfile.dev
+      context: "./services/gateway"
+    volumes:
+      - /app/node_modules
+      - ./services/gateway:/app
+    environment:
+      - HOST=localhost
+      - PORT=7000
+      - SECRET_KEY=secret!
+      - DATABASE_URL=postgres://postgres:123456@psql:5432/postgres
+      - SENTRY_DSN=https://7367430a6fe54c318164d32beb55d7a9@o511333.ingest.sentry.io/5679498
+      - NGINX_HOST=http://localhost:3050
+      - ADMIN_HOST=http://localhost:3060
+      - USE_SSL= false
+    depends_on:
+      - nginx
+      - psql
+    networks:
+      - dichori
+  admin:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./ui/admin
+    ports:
+      - "3060:3000"
+    volumes:
+      - /app/node_modules
+      - ./ui/admin:/app
+    depends_on:
+      - psql
+    environment:
+      - REACT_APP_GATEWAY=http://localhost:3050/gateway
+      - REACT_APP_MEDIA=http://localhost:3050/media
+    networks:
+      - dichori
+  site:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./ui/site
+    volumes:
+      - /app/node_modules
+      - ./ui/site:/app
+    depends_on:
+      - nginx
+      - psql
+    environment:
+      - REACT_APP_GATEWAY=http://localhost:3050/gateway
+      - REACT_APP_MEDIA=http://localhost:3050/media
+      - REACT_APP_CLOUDINARY_BASE_URL=https://res.cloudinary.com/devaloupis/image/upload/v1624560792/
+    networks:
+      - dichori
+  media:
+    restart: always
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: ./services/media
+    depends_on:
+      - nginx
+    environment:
+      - CLOUDINARY_URL=cloudinary://173739189595347:KgK2ijnNqRf13vGo397ddiRG8gU@devaloupis
+      - PORT=9000
+    networks:
+      - dichori
+networks:
+  dichori:
