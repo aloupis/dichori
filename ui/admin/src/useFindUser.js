@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 const AUTH_SERVICE_BASE_URL =
-  process.env.REACT_APP_GATEWAY || "https://dichoris-gateway.herokuapp.com";
+  process.env.REACT_APP_GATEWAY || "https://dichori-gateway.herokuapp.com";
 
 export default function useFindUser() {
   const history = useHistory();
