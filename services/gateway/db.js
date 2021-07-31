@@ -39,7 +39,8 @@ const selectWithJoin = async (
       pg
         .select(constructSelectWithJoins(table, tableColumns, joins))
         .from(table),
-      joins
+      joins,
+      table
     )
       .where(args || true)
       .offset(offset || 0)

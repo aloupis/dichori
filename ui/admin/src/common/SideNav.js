@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import CategoryIcon from '@material-ui/icons/Category';
 import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
+import InsertDriveFile from '@material-ui/icons/InsertDriveFile';
 import LayoutStyles from './LayoutStyles';
 
 const useStyles = makeStyles(LayoutStyles);
@@ -102,6 +103,15 @@ const SideNav = ({ drawerIsOpen, closeDrawer }) => {
             <EmojiEmotionsOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Members" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button to="/pages" key="Pages" component={Link}>
+          <ListItemIcon>
+            <InsertDriveFile />
+          </ListItemIcon>
+          <ListItemText primary="Pages" />
         </ListItem>
       </List>
       <Divider />

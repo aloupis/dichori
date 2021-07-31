@@ -16,6 +16,9 @@ import NewMember from './components/members/NewMember';
 import EditMember from './components/members/EditMember';
 import Gallery from './components/gallery/Gallery';
 import Settings from './components/settings/Settings';
+import PagesList from './components/pages/PagesList';
+import NewPage from './components/pages/NewPage';
+import EditPage from './components/pages/EditPage';
 
 const Routes = () => (
   <Layout>
@@ -35,6 +38,9 @@ const Routes = () => (
       <Route path="/services/:id" component={EditService} />
       <Route path="/gallery" exact component={Gallery} />
       <Route path="/settings" exact component={Settings} />
+      <Route path="/pages" exact component={PagesList} />
+      <Route path="/pages/new" exact component={NewPage} />
+      <Route path="/pages/:id" component={EditPage} />
     </Switch>
   </Layout>
 );

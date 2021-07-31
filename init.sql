@@ -78,6 +78,21 @@ CREATE TABLE subscriber(
    id serial PRIMARY KEY, 
    email VARCHAR(255) NOT NULL
 );
+CREATE TABLE page(
+  id serial PRIMARY KEY,
+  title_en VARCHAR(255) NOT NULL, 
+  title_gr VARCHAR(255) NOT NULL, 
+  content_en TEXT,
+  content_gr TEXT,
+  image_public_id VARCHAR(255),
+  url VARCHAR(255),
+  created_at TIMESTAMP NOT NULL, 
+  updated_at TIMESTAMP , 
+  author_id INTEGER NOT NULL, 
+  editor_id INTEGER, 
+  FOREIGN KEY (author_id) REFERENCES usr (id), 
+  FOREIGN KEY (editor_id) REFERENCES usr (id)
+);
 
 
 INSERT INTO usr(username, email, password) 

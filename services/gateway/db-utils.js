@@ -14,10 +14,18 @@ const constructSelectWithJoins = (table, tableColumns, joins) => [
   ),
 ];
 
-const applyJoinsToQuery = (query, joins) =>
+const applyJoinsToQuery = (query, joins, table) =>
   joins.reduce(
     (queryWithJoins, join) =>
-      queryWithJoins.innerJoin(join.table, join.foreignKey, `${join.table}.id`),
+      join.table === 'parent'
+        ? queryWithJoins.joinRaw(
+            `left join "${table}" AS "parent" ON "parent"."id" = "${table}"."parent_id"`
+          )
+        : queryWithJoins.innerJoin(
+            join.table,
+            join.foreignKey,
+            `${join.table}.id`
+          ),
     query
   );
 

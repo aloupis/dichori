@@ -84,6 +84,20 @@ const typeDefs = gql`
     position_en: String
     position_gr: String
   }
+  input PageInput {
+    title_en: String!
+    title_gr: String!
+    content_en: String!
+    content_gr: String!
+    url: String!
+  }
+  input PageSet {
+    title_en: String
+    title_gr: String
+    content_en: String
+    content_gr: String
+    url: String
+  }
   type User {
     id: ID!
     username: String!
@@ -160,6 +174,19 @@ const typeDefs = gql`
     about_us_content_en: String
     about_us_image_public_id: String
   }
+  type Page {
+    id: ID!
+    title_gr: String!
+    title_en: String!
+    content_gr: String!
+    content_en: String!
+    image_public_id: String
+    url: String!
+    created_at: String!
+    updated_at: String
+    author: User
+    editor: User
+  }
   type MutationResult {
     success: Boolean!
     message: String
@@ -178,6 +205,9 @@ const typeDefs = gql`
     service_by_pk(id: Int!): Service
     services_count: Int!
     settings: Settings!
+    pages(offset: Int!, limit: Int!, orderBy: OrderBy): [Page]
+    page_by_pk(id: Int!): Page
+    pages_count: Int!
   }
   type Mutation {
     insert_post(input: PostInput!): Post!
@@ -193,6 +223,9 @@ const typeDefs = gql`
     update_service(id: Int!, set: ServiceSet!): Service!
     delete_service(id: Int!): MutationResult!
     update_settings(set: SettingsSet!): Settings!
+    insert_page(input: PageInput!): Page!
+    update_page(id: Int!, set: PageSet!): Page!
+    delete_page(id: Int!): MutationResult!
   }
 `;
 
