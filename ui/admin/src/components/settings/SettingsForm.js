@@ -1,147 +1,64 @@
-import React, { useMemo } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import useForm from '../../useForm';
 import { CancelBtn } from '../../common/CancelBtn';
 import { ActionFormButtons } from '../../common/ActionFormButtons';
-
-import 'react-quill/dist/quill.snow.css';
-
-const ReactQuill = React.lazy(() => import('react-quill'));
+import Home from './home/Home';
+import Header from './header/Header';
+import Footer from './footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
-  quill: {
-    height: '200px',
-  },
   control: { marginBottom: theme.spacing(2) },
 }));
-
-const formats = [
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
-  'list',
-  'bullet',
-  'align',
-  'color',
-  'background',
-  'image',
-  'link',
-  'video',
-  'mention',
-];
 
 const SettingsForm = ({ settings, onSave, onError, history }) => {
   const classes = useStyles();
 
-  const modules = useMemo(
-    () => ({
-      toolbar: [
-        ['bold', 'italic', 'underline'], // toggled buttons
-        [{ list: 'ordered' }, { list: 'bullet' }],
-        ['link', 'image'], // add's image support
-        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-      ],
-    }),
+  const [header, setHeader] = useState(JSON.parse(settings.header_menu_config));
+  const [footer, setFooter] = useState(JSON.parse(settings.footer_menu_config));
 
-    [] // TODO: fix eslint error somehow
+  const [imagePublicId, setImagePublicId] = useState(
+    settings.home_image_public_id || ''
   );
 
-  const { values, handleChange, handleBaseChange } = useForm({
-    initialValues: settings
-      ? {
-          about_us_title_gr: settings.about_us_title_gr,
-          about_us_title_en: settings.about_us_title_en,
-          about_us_content_gr: settings.about_us_content_gr,
-          about_us_content_en: settings.about_us_content_en,
-        }
-      : {
-          about_us_title_gr: '',
-          about_us_title_en: '',
-          about_us_content_gr: '',
-          about_us_content_en: '',
-        },
-  });
+  const [titleEn, setTitleEn] = useState(settings.home_title_en || '');
+  const [titleGr, setTitleGr] = useState(settings.home_title_gr || '');
+
+  const [contentEn, setContentEn] = useState(settings.home_content_en || '');
+  const [contentGr, setContentGr] = useState(settings.home_content_gr || '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await onSave(values);
+    await onSave({
+      header_menu_config: JSON.stringify(header),
+      footer_menu_config: JSON.stringify(footer),
+      home_title_en: titleEn,
+      home_title_gr: titleGr,
+      home_content_en: contentEn,
+      home_content_gr: contentGr,
+      home_image_public_id: imagePublicId,
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <div style={{ marginBottom: '15px' }}>
-            <Typography variant="h6">English</Typography>
-          </div>
-          <TextField
-            id="about_us_title_en"
-            name="about_us_title_en"
-            label="About Us Title"
-            variant="outlined"
-            className={classes.control}
-            onChange={handleChange}
-            required
-            fullWidth
-            value={values.about_us_title_en || ''}
-          />
-
-          <div>
-            <ReactQuill
-              id="about_us_content_en"
-              name="about_us_content_en"
-              theme="snow"
-              className={classes.quill}
-              modules={modules}
-              formats={formats}
-              onChange={(value) =>
-                handleBaseChange('about_us_content_en', value)
-              }
-              value={values.about_us_content_en || ''}
-            />
-          </div>
-        </Grid>
-        <Grid item xs={6}>
-          <div style={{ marginBottom: '15px' }}>
-            <Typography variant="h6">Greek</Typography>
-          </div>
-          <TextField
-            id="about_us_title_gr"
-            name="about_us_title_gr"
-            label="About Us Title"
-            variant="outlined"
-            className={classes.control}
-            onChange={handleChange}
-            fullWidth
-            required
-            value={values.about_us_title_gr || ''}
-          />
-          <div>
-            <ReactQuill
-              id="about_us_content_gr"
-              name="about_us_content_gr"
-              theme="snow"
-              className={classes.quill}
-              modules={modules}
-              formats={formats}
-              onChange={(value) =>
-                handleBaseChange('about_us_content_gr', value)
-              }
-              value={values.about_us_content_gr || ''}
-            />
-          </div>
-        </Grid>
-      </Grid>
-
+      <Home
+        imagePublicId={imagePublicId}
+        setImagePublicId={setImagePublicId}
+        titleEn={titleEn}
+        setTitleEn={setTitleEn}
+        titleGr={titleGr}
+        setTitleGr={setTitleGr}
+        contentEn={contentEn}
+        setContentEn={setContentEn}
+        contentGr={contentGr}
+        setContentGr={setContentGr}
+      />
+      <Header header={header} setHeader={setHeader} />
+      <Footer footer={footer} setFooter={setFooter} />
       <div style={{ marginTop: '50px' }}>
         <Divider />
         <ActionFormButtons>

@@ -95,6 +95,23 @@ CREATE TABLE page(
   FOREIGN KEY (editor_id) REFERENCES usr (id)
 );
 
+CREATE TABLE settings(
+  id serial PRIMARY KEY, 
+  header_menu_config JSONB,
+  footer_menu_config JSONB,
+  home_image_public_id VARCHAR(255),
+  home_title_en VARCHAR(255), 
+  home_title_gr VARCHAR(255), 
+  home_content_en TEXT,
+  home_content_gr TEXT
+);
+
+INSERT INTO settings(header_menu_config,footer_menu_config,home_title_en,home_title_gr,home_content_en,home_content_gr)
+VALUES
+  (
+    '{"items":[]}','{"items":[]}','','','',''
+  );
+
 INSERT INTO usr(username, email, password) 
 VALUES 
   (

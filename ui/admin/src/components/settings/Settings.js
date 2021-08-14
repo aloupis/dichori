@@ -1,19 +1,14 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation } from '@apollo/client';
-import Typography from '@material-ui/core/Typography';
 import PageWrapper from '../../common/PageWrapper';
 import SettingsForm from './SettingsForm';
 import Loading from '../../common/Loading';
 import { SnackbarContext } from '../../SnackbarContext';
-import AssetContainer from '../../common/media/asset/AssetContainer';
 import { SETTINGS_QUERY, UPDATE_SETTINGS_MUTATION } from './model';
 
 const Settings = ({ history }) => {
   const { data, loading, error } = useQuery(SETTINGS_QUERY);
-  const [imagePublicId, setImagePublicId] = useState(
-    data?.settings?.image_public_id || ''
-  );
   const { showMessage, showGenericErrorMessage } = useContext(SnackbarContext);
 
   const [updateSettings] = useMutation(UPDATE_SETTINGS_MUTATION);
@@ -22,11 +17,13 @@ const Settings = ({ history }) => {
       await updateSettings({
         variables: {
           set: {
-            about_us_title_gr: settings.about_us_title_gr,
-            about_us_title_en: settings.about_us_title_en,
-            about_us_content_gr: settings.about_us_content_gr,
-            about_us_content_en: settings.about_us_content_en,
-            about_us_image_public_id: imagePublicId,
+            header_menu_config: settings.header_menu_config,
+            footer_menu_config: settings.footer_menu_config,
+            home_title_gr: settings.home_title_gr,
+            home_title_en: settings.home_title_en,
+            home_content_gr: settings.home_content_gr,
+            home_content_en: settings.home_content_en,
+            home_image_public_id: settings.home_image_public_id,
           },
         },
         refetchQueries: [`SETTINGS_QUERY`],
@@ -45,16 +42,6 @@ const Settings = ({ history }) => {
 
   return (
     <PageWrapper title="Settings" maxWidth="lg">
-      <div style={{ marginBottom: '15px' }}>
-        <Typography variant="h6">About Us</Typography>
-      </div>
-      <AssetContainer
-        url="about-us"
-        publicId={data.settings.image_public_id || ''}
-        acceptedFileTypes="image/jpeg,image/png,image/gif"
-        updateEntity={setImagePublicId}
-      />
-      <div style={{ marginBottom: '10px' }} />
       <SettingsForm
         onSave={handleSave}
         settings={data.settings}

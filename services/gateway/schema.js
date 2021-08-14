@@ -46,11 +46,13 @@ const typeDefs = gql`
     summary_gr: String
   }
   input SettingsSet {
-    about_us_title_gr: String
-    about_us_title_en: String
-    about_us_content_gr: String
-    about_us_content_en: String
-    about_us_image_public_id: String
+    header_menu_config: String!
+    footer_menu_config: String!
+    home_title_gr: String
+    home_title_en: String
+    home_content_gr: String
+    home_content_en: String
+    home_image_public_id: String
   }
   input ServiceSet {
     name_gr: String
@@ -168,11 +170,13 @@ const typeDefs = gql`
     editor: User
   }
   type Settings {
-    about_us_title_gr: String
-    about_us_title_en: String
-    about_us_content_gr: String
-    about_us_content_en: String
-    about_us_image_public_id: String
+    header_menu_config: String!
+    footer_menu_config: String!
+    home_title_gr: String
+    home_title_en: String
+    home_content_gr: String
+    home_content_en: String
+    home_image_public_id: String
   }
   type Page {
     id: ID!

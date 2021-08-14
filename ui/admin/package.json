@@ -27,6 +27,7 @@
     "react-scripts": "4.0.1",
     "typeface-inter": "^3.15.1",
     "typeface-roboto": "^1.1.13",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
