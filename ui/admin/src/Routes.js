@@ -19,6 +19,7 @@ import Settings from './components/settings/Settings';
 import PagesList from './components/pages/PagesList';
 import NewPage from './components/pages/NewPage';
 import EditPage from './components/pages/EditPage';
+import Events from './components/events/Events';
 
 const Routes = () => (
   <Layout>
@@ -41,6 +42,7 @@ const Routes = () => (
       <Route path="/pages" exact component={PagesList} />
       <Route path="/pages/new" exact component={NewPage} />
       <Route path="/pages/:id" component={EditPage} />
+      <Route path="/events" exact component={Events} />
     </Switch>
   </Layout>
 );

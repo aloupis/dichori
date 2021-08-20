@@ -18,7 +18,6 @@ const resolvers = {
           orderBy && orderBy.field ? orderBy.field : 'page.id',
           orderBy && orderBy.direction ? orderBy.direction : 'desc'
         );
-        console.log({ pages });
         return pages.map((page) =>
           transformEntity(page, 'page', pageRelations)
         );

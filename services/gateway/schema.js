@@ -100,6 +100,22 @@ const typeDefs = gql`
     content_gr: String
     url: String
   }
+  input EventInput {
+    title_en: String!
+    title_gr: String!
+    content_en: String
+    content_gr: String
+    event_start: String!
+    event_end: String!
+  }
+  input EventSet {
+    title_en: String
+    title_gr: String
+    content_en: String
+    content_gr: String
+    event_start: String
+    event_end: String
+  }
   type User {
     id: ID!
     username: String!
@@ -191,6 +207,19 @@ const typeDefs = gql`
     author: User
     editor: User
   }
+  type Event {
+    id: ID!
+    title_gr: String!
+    title_en: String!
+    content_gr: String
+    content_en: String
+    event_start: String!
+    event_end: String!
+    created_at: String!
+    updated_at: String
+    author: User
+    editor: User
+  }
   type MutationResult {
     success: Boolean!
     message: String
@@ -212,6 +241,7 @@ const typeDefs = gql`
     pages(offset: Int!, limit: Int!, orderBy: OrderBy): [Page]
     page_by_pk(id: Int!): Page
     pages_count: Int!
+    events: [Event]
   }
   type Mutation {
     insert_post(input: PostInput!): Post!
@@ -230,6 +260,9 @@ const typeDefs = gql`
     insert_page(input: PageInput!): Page!
     update_page(id: Int!, set: PageSet!): Page!
     delete_page(id: Int!): MutationResult!
+    insert_event(input: EventInput!): Event!
+    update_event(id: Int!, set: EventSet!): Event!
+    delete_event(id: Int!): MutationResult!
   }
 `;
 

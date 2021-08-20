@@ -105,6 +105,22 @@ CREATE TABLE settings(
   home_content_gr TEXT
 );
 
+CREATE TABLE event(
+  id serial PRIMARY KEY, 
+  title_en VARCHAR(255), 
+  title_gr VARCHAR(255), 
+  content_en TEXT,
+  content_gr TEXT,
+  event_start TIMESTAMP,
+  event_end TIMESTAMP,
+  created_at TIMESTAMP NOT NULL, 
+  updated_at TIMESTAMP , 
+  author_id INTEGER NOT NULL, 
+  editor_id INTEGER,
+  FOREIGN KEY (author_id) REFERENCES usr (id), 
+  FOREIGN KEY (editor_id) REFERENCES usr (id)
+);
+
 INSERT INTO settings(header_menu_config,footer_menu_config,home_title_en,home_title_gr,home_content_en,home_content_gr)
 VALUES
   (

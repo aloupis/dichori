@@ -120,6 +120,7 @@ const serviceResolvers = require('./service');
 const memberResolvers = require('./member');
 const settingsResolvers = require('./settings');
 const pageResolvers = require('./page');
+const eventResolvers = require('./event');
 const { typeDefs } = require('./schema');
 
 const resolvers = merge(
@@ -128,7 +129,8 @@ const resolvers = merge(
   serviceResolvers,
   memberResolvers,
   settingsResolvers,
-  pageResolvers
+  pageResolvers,
+  eventResolvers
 );
 
 const context = ({ req }) => {

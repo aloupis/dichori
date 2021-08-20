@@ -16,9 +16,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TimelineIcon from '@material-ui/icons/Timeline';
-import CategoryIcon from '@material-ui/icons/Category';
 import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 import InsertDriveFile from '@material-ui/icons/InsertDriveFile';
+import EventIcon from '@material-ui/icons/Event';
 import LayoutStyles from './LayoutStyles';
 
 const useStyles = makeStyles(LayoutStyles);
@@ -66,29 +66,6 @@ const SideNav = ({ drawerIsOpen, closeDrawer }) => {
       </List>
       <Divider />
       <List>
-        <ListItem
-          button
-          to="/categories"
-          key=" Service Categories"
-          component={Link}
-        >
-          <ListItemIcon>
-            <CategoryIcon />
-          </ListItemIcon>
-          <ListItemText primary="Service Categories" />
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem button to="/services" key="Services" component={Link}>
-          <ListItemIcon>
-            <DirectionsBoatIcon />
-          </ListItemIcon>
-          <ListItemText primary="Services" />
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
         <ListItem button to="/gallery" key="Gallery" component={Link}>
           <ListItemIcon>
             <PhotoIcon />
@@ -112,6 +89,15 @@ const SideNav = ({ drawerIsOpen, closeDrawer }) => {
             <InsertDriveFile />
           </ListItemIcon>
           <ListItemText primary="Pages" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button to="/events" key="Events" component={Link}>
+          <ListItemIcon>
+            <EventIcon />
+          </ListItemIcon>
+          <ListItemText primary="Events" />
         </ListItem>
       </List>
       <Divider />
