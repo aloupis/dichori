@@ -15,7 +15,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "prettier": "^2.1.1"
+    "jest": "^27.1.1",
+    "prettier": "^2.1.1",
+    "request-promise": "^4.2.6"
   },
   "scripts": {
     "site": "cd ui/site && npm start",
@@ -23,7 +25,10 @@
     "docker": "docker-compose up --build",
     "services": "concurrently -k -p '[{name}]' -n 'GATEWAY' -c 'bgGreen.bold' 'cd services/gateway && npm run watch'",
     "reset-infra": "docker-compose down && docker volume prune -f",
+    "reset-infra:test": "docker-compose -f docker-compose.test.yml down && docker volume prune -f",
+    "docker:test": "docker-compose -f docker-compose.test.yml up --build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "jest"
   }
 }

@@ -15,7 +15,7 @@ const db = require('./db');
 const { SECRET_KEY, HOST, PORT, NGINX_HOST, ADMIN_HOST, SITE_HOST, USE_SSL } =
   process.env;
 
-const ALLOWED_DOMAINS = [NGINX_HOST, ADMIN_HOST, SITE_HOST];
+const ALLOWED_DOMAINS = [NGINX_HOST, ADMIN_HOST, SITE_HOST, HOST];
 
 app.use(
   cors({

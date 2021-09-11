@@ -11,5 +11,6 @@ size-snapshot.json
 .eslintcache
 **/.eslintcache
 main
+coverage
 
 ui/admin/.eslintcache
