@@ -23,7 +23,7 @@ const resolvers = {
         );
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     posts_count: async (_, args) => {
@@ -32,7 +32,7 @@ const resolvers = {
         return total ? total.count : 0;
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     post_by_pk: async (_, { id }) => {
@@ -44,7 +44,7 @@ const resolvers = {
         return transformEntity(post, 'post', postRelations);
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
   },
@@ -81,7 +81,7 @@ const resolvers = {
       } catch (err) {
         console.log({ err });
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     update_post: async (_, { set, id }, { token }) => {
@@ -105,7 +105,7 @@ const resolvers = {
         return transformEntity(post, 'post', postRelations);
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     delete_post: async (_, { id }, { token }) => {
