@@ -2,6 +2,10 @@ const rp = require('request-promise');
 
 const API = 'http://localhost:7000/graphql';
 
+const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbm9zLmFsb3VwaXNAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTYzMTM1MjkzN30.JEwO0lIEITdj-nyv3KbWWe6lf3CtE4HS_Y4ECRcP2HM';
+// To be changed accordingly
+
 const {
   FIRST_PAGE_POSTS,
   ORDER_BY_POSTS,
@@ -11,9 +15,6 @@ const {
   NEW_ID,
 } = require('./queries');
 
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbm9zLmFsb3VwaXNAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTYzMTM1MjkzN30.JEwO0lIEITdj-nyv3KbWWe6lf3CtE4HS_Y4ECRcP2HM';
-// To be changed accordingly
 describe('Checking posts resolvers', () => {
   it('Retrieves the first page of posts', async () => {
     const response = await rp({
@@ -26,7 +27,7 @@ describe('Checking posts resolvers', () => {
     expect(response.data.posts_count).toEqual(50);
   });
 
-  it('Orders post by summary_en', async () => {
+  it('Orders posts by summary_en', async () => {
     const response = await rp({
       method: 'POST',
       uri: API,

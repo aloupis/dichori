@@ -23,7 +23,7 @@ const resolvers = {
         );
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     pages_count: async (_, args) => {
@@ -32,7 +32,7 @@ const resolvers = {
         return total ? total.count : 0;
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     page_by_pk: async (_, { id }) => {
@@ -44,7 +44,7 @@ const resolvers = {
         return transformEntity(page, 'page', pageRelations);
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
   },
@@ -74,7 +74,7 @@ const resolvers = {
       } catch (err) {
         console.log({ err });
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     update_page: async (_, { set, id }, { token }) => {
@@ -98,7 +98,7 @@ const resolvers = {
         return transformEntity(page, 'page', pageRelations);
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     delete_page: async (_, { id }, { token }) => {
