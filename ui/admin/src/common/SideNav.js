@@ -5,7 +5,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DescriptionIcon from '@material-ui/icons/Description';
-import DirectionsBoatIcon from '@material-ui/icons/DirectionsBoat';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PhotoIcon from '@material-ui/icons/Photo';
 import Divider from '@material-ui/core/Divider';
@@ -16,7 +15,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TimelineIcon from '@material-ui/icons/Timeline';
-import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 import InsertDriveFile from '@material-ui/icons/InsertDriveFile';
 import EventIcon from '@material-ui/icons/Event';
 import LayoutStyles from './LayoutStyles';
@@ -71,15 +69,6 @@ const SideNav = ({ drawerIsOpen, closeDrawer }) => {
             <PhotoIcon />
           </ListItemIcon>
           <ListItemText primary="Gallery" />
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem button to="/members" key="Members" component={Link}>
-          <ListItemIcon>
-            <EmojiEmotionsOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Members" />
         </ListItem>
       </List>
       <Divider />

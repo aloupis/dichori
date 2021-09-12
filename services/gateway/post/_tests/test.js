@@ -13,7 +13,7 @@ const {
 
 const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbm9zLmFsb3VwaXNAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTYzMTM1MjkzN30.JEwO0lIEITdj-nyv3KbWWe6lf3CtE4HS_Y4ECRcP2HM';
-
+// To be changed accordingly
 describe('Checking posts resolvers', () => {
   it('Retrieves the first page of posts', async () => {
     const response = await rp({

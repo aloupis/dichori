@@ -115,9 +115,6 @@ app.get('/user', async (req, res) => {
 });
 
 const postResolvers = require('./post');
-const categoryResolvers = require('./category');
-const serviceResolvers = require('./service');
-const memberResolvers = require('./member');
 const settingsResolvers = require('./settings');
 const pageResolvers = require('./page');
 const eventResolvers = require('./event');
@@ -125,9 +122,6 @@ const { typeDefs } = require('./schema');
 
 const resolvers = merge(
   postResolvers,
-  categoryResolvers,
-  serviceResolvers,
-  memberResolvers,
   settingsResolvers,
   pageResolvers,
   eventResolvers
