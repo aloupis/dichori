@@ -24,7 +24,7 @@ const resolvers = {
         );
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
   },
@@ -67,7 +67,7 @@ const resolvers = {
       } catch (err) {
         console.log({ err });
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     update_event: async (_, { set, id }, { token }) => {
@@ -96,7 +96,7 @@ const resolvers = {
         return transformEntity(event, 'event', eventRelations);
       } catch (err) {
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
     delete_event: async (_, { id }, { token }) => {
