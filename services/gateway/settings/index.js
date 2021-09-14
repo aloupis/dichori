@@ -25,11 +25,16 @@ const resolvers = {
           },
           1
         );
-        return set;
+        const settings = await db.select('settings', { id: 1 });
+        return {
+          ...settings[0],
+          header_menu_config: JSON.stringify(settings[0].header_menu_config),
+          footer_menu_config: JSON.stringify(settings[0].footer_menu_config),
+        };
       } catch (err) {
         console.log({ err });
         Sentry.captureException(err);
-        return null;
+        return err;
       }
     },
   },

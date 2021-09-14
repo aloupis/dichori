@@ -19,8 +19,8 @@ const typeDefs = gql`
     summary_gr: String
   }
   input SettingsSet {
-    header_menu_config: String!
-    footer_menu_config: String!
+    header_menu_config: String
+    footer_menu_config: String
     home_title_gr: String
     home_title_en: String
     home_content_gr: String
