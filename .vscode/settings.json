@@ -1,6 +1,6 @@
 {
   "workbench.colorCustomizations": {
-    "activityBar.background": "#00008b",
+    "activityBar.background": "#003314",
     "activityBar.activeForeground": "#ffffff",
     "activityBar.inactiveForeground": "#ffffff"
   },
@@ -12,6 +12,9 @@
   },
   "[javascriptreact]": {
     "editor.formatOnSave": false
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   // tell the ESLint plugin to run on save
   "editor.codeActionsOnSave": {

@@ -7,6 +7,7 @@ const { Sentry } = require('../sentry');
 const resolvers = {
   Query: {
     pages: async (_, { offset, limit, orderBy }) => {
+      console.log('inpages');
       try {
         const pages = await db.selectWithJoin(
           'page',

@@ -5,6 +5,7 @@ const { Sentry } = require('../sentry');
 const resolvers = {
   Query: {
     settings: async () => {
+      console.log('tralala');
       const settings = await db.select('settings', { id: 1 });
       return {
         ...settings[0],
