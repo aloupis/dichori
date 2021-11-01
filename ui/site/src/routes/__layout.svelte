@@ -32,7 +32,7 @@
 
 <!-- <Header items={data.header.items} answer={42}/> -->
 
-<nav class="bg-blue-900 shadow-lg">
+<nav class="bg-green-900 shadow-lg">
 	<div class="container mx-auto">
 		<div class="sm:flex">
 			<a href="/" class="text-white text-3xl font-bold p-3">APP LOGO</a>
@@ -55,7 +55,7 @@
 					{/each}
 					<li class="sm:inline-block">
 						<a href="/posts" class="p-3 hover:text-red-900">posts</a>
-					  </li>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -91,8 +91,8 @@
 	<slot />
 </main>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+<footer id="footer">
+	<small>Copyright (c) 2021 Dichori. All Rights Reserved.</small>
 </footer>
 
 <style global lang="postcss">

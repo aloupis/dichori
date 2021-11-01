@@ -1,6 +1,5 @@
 <script context="module">
 	export async function load(ctx) {
-		console.log('in slug svelte preload');
 		//  slug is url make query to bring page with this url
 		let slug = ctx.page.params.slug;
 

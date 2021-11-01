@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-node'
+import adapter from '@sveltejs/adapter-node';
+import 'dotenv/config';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

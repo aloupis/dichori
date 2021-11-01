@@ -3,7 +3,6 @@ import { gql } from '@apollo/client/core/core.cjs.js';
 import { client } from '../../lib/Client';
 
 export const post = async (request) => {
-	console.log('inpage json js');
 	const { url } = request.body;
 	try {
 		const query = gql`

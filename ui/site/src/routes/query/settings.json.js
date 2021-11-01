@@ -3,7 +3,6 @@ import { gql } from '@apollo/client/core/core.cjs.js';
 import { client } from '../../lib/Client';
 
 export const post = async () => {
-	console.log('in server test.json');
 	try {
 		const query = gql`
 			query SETTINGS_QUERY {
