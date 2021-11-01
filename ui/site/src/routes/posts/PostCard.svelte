@@ -5,7 +5,7 @@
 	const baseCloudinaryUrl = 'https://res.cloudinary.com/devaloupis/image/upload/v1624560792'; ///process.env.REACT_APP_CLOUDINARY_BASE_URL;s
 </script>
 
-<div class="rounded overflow-hidden shadow-lg ">
+<div class="rounded overflow-hidden shadow-lg bg-white">
 	<a href={`/posts/${post.id}`}>
 		<img
 			class="h-48 w-full object-cover"
