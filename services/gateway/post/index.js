@@ -7,7 +7,6 @@ const { Sentry } = require('../sentry');
 const resolvers = {
   Query: {
     posts: async (_, { offset, limit, orderBy }) => {
-      console.log('in gateway', { offset, limit });
       try {
         const posts = await db.selectWithJoin(
           'post',
@@ -19,7 +18,7 @@ const resolvers = {
           orderBy && orderBy.field ? orderBy.field : 'post.id',
           orderBy && orderBy.direction ? orderBy.direction : 'desc'
         );
-        console.log({ length: posts.length });
+
         return posts.map((post) =>
           transformEntity(post, 'post', postRelations)
         );
