@@ -5,7 +5,15 @@ const config = {
 	purge: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {
+			screens: {
+				phone: { min: '280px', max: '640px' },
+				tablet: { min: '641px', max: '768px' },
+				laptop: { min: '769px', max: '1279px' },
+				desktop: { min: '1280px', max: '1535px' },
+				'big-desktop': { min: '1536px' }
+			}
+		}
 	},
 
 	plugins: [

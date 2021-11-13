@@ -36,7 +36,9 @@
 </script>
 
 <div class="py-5 px-10 grid grid-cols-8 gap-16">
-	<div class="col-span-6">
+	<div
+		class="col-span-6 big-desktop:col-span-6 desktop:col-span-6 tablet:col-span-8 phone:col-span-8"
+	>
 		<h1 class="pb-5">{page.title_en}</h1>
 		<img
 			class="h-80 pb-5 w-full object-cover"
@@ -45,7 +47,9 @@
 		/>
 		{@html page.content_en}
 	</div>
-	<div class="col-span-2">
+	<div
+		class="col-span-2 big-desktop:col-span-2 desktop:col-span-2 tablet:col-span-8 phone:col-span-8"
+	>
 		<LatestPosts posts={latestPosts} />
 	</div>
 </div>

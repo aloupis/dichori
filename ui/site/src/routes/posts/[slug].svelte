@@ -39,7 +39,9 @@
 </script>
 
 <div class="py-5 px-10 grid grid-cols-8 gap-16">
-	<div class="col-span-6">
+	<div
+		class="col-span-6 big-desktop:col-span-6 desktop:col-span-6 tablet:col-span-8 phone:col-span-8"
+	>
 		<div class="text-green-900 italic font-semibold text-xs text-left">
 			{format(fromUnixTime(post.created_at / 1000), 'dd/MM/yyyy')}
 		</div>
@@ -56,7 +58,9 @@
 		</div>
 		{@html post.content_en}
 	</div>
-	<div class="col-span-2">
+	<div
+		class="col-span-2 big-desktop:col-span-2 desktop:col-span-2 tablet:col-span-8 phone:col-span-8"
+	>
 		<LatestPosts posts={latestPosts} />
 	</div>
 </div>
