@@ -22,17 +22,28 @@ export const post = async (request) => {
 						username
 					}
 				}
+				posts(offset: 0, limit: 3, orderBy: { field: "created_at", direction: "desc" }) {
+					id
+					title_en
+					title_gr
+					summary_en
+					summary_gr
+					image_public_id
+				}
 			}
 		`;
 		const result = await client.query({
 			query,
-			variables: { id: +id }
+			variables: {
+				id: +id
+			}
 		});
 
 		return {
 			status: 200,
 			body: {
-				post: result.data.post_by_pk
+				post: result.data.post_by_pk,
+				latestPosts: result.data.posts
 			}
 		};
 	} catch (err) {

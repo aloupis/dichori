@@ -14,6 +14,7 @@ export const post = async (request) => {
 					content_en
 					content_gr
 					url
+					image_public_id
 					created_at
 					updated_at
 					author {
@@ -22,6 +23,14 @@ export const post = async (request) => {
 					}
 				}
 				pages_count
+				posts(offset: 0, limit: 3, orderBy: { field: "created_at", direction: "desc" }) {
+					id
+					title_en
+					title_gr
+					summary_en
+					summary_gr
+					image_public_id
+				}
 			}
 		`;
 
@@ -38,7 +47,8 @@ export const post = async (request) => {
 		return {
 			status: 200,
 			body: {
-				page: result.data.pages.find((x) => x.url === url)
+				page: result.data.pages.find((x) => x.url === url),
+				latestPosts: result.data.posts
 			}
 		};
 	} catch (err) {

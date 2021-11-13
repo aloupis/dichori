@@ -31,7 +31,7 @@
 </script>
 
 <!-- <Header items={data.header.items} answer={42}/> -->
-<div class="flex flex-col h-screen justify-between">
+<div class="flex flex-col h-screen">
 	<nav class="bg-green-900 shadow-lg">
 		<div class="container mx-auto">
 			<div class="sm:flex">
@@ -46,19 +46,22 @@
 						<li class="sm:inline-block">
 							<a href="/posts" class="p-3 hover:text-red-900">posts</a>
 						</li>
+						<li class="sm:inline-block">
+							<a href="/gallery" class="p-3 hover:text-red-900">gallery</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</nav>
-
-	<main class="bg-gray-50">
+	<main class="py-5 mb-auto">
 		<slot />
 	</main>
-
-	<footer id="footer" class=" h-30 mt-10 bg-black shadow-lg text-white">
-		<div class="grid grid-cols-1 py-5 px-10 justify-items-center">
-			<div class="">Copyright &copy; 2021 Dichori. All Rights Reserved.</div>
+	<footer id="footer" class=" h-30 mt-5 bg-black shadow-lg text-white">
+		<div class="grid grid-cols-3 py-5 px-10 ">
+			<div class=""><a href="/contact">Contact Us</a></div>
+			<div class="" />
+			<div class="text-right">Copyright &copy; 2021 Dichori. All Rights Reserved.</div>
 		</div>
 	</footer>
 </div>

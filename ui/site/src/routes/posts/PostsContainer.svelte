@@ -3,7 +3,7 @@
 	import postStore from '$lib/stores/posts';
 </script>
 
-<div class="py-5 px-10  grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6">
+<div class="py-5 px-10 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-6">
 	<div class="col-span-3">
 		<p>Here are our posts:</p>
 	</div>
