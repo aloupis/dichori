@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client/core/core.cjs.js';
-// import { client } from '$lib/utilities/apolloClient.js';
 import { client } from '../../lib/Client';
 
 export const post = async () => {
@@ -26,7 +25,12 @@ export const post = async () => {
 			status: 200,
 			body: {
 				header: JSON.parse(result.data.settings.header_menu_config),
-				footer: JSON.parse(result.data.settings.footer_menu_config)
+				footer: JSON.parse(result.data.settings.footer_menu_config),
+				homeTitleGr: result.data.settings.home_title_gr,
+				homeTitleEn: result.data.settings.home_title_en,
+				homeContentGr: result.data.settings.home_content_gr,
+				homeContentEn: result.data.settings.home_content_en,
+				homeImage: result.data.settings.home_image_public_id
 			}
 		};
 	} catch (err) {

@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client/core/core.cjs.js';
-// import { client } from '$lib/utilities/apolloClient.js';
 import { client } from '../../lib/Client';
 
 export const post = async (request) => {

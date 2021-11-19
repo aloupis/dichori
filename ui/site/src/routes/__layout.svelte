@@ -26,8 +26,10 @@
 </script>
 
 <script>
+	import { setContext } from 'svelte';
 	import '../app.postcss';
 	export let data;
+	setContext('settings', data);
 </script>
 
 <!-- <Header items={data.header.items} answer={42}/> -->
