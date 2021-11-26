@@ -99,7 +99,6 @@ CREATE TABLE settings(
   id serial PRIMARY KEY, 
   header_menu_config JSONB,
   footer_menu_config JSONB,
-  home_image_public_id VARCHAR(255),
   home_title_en VARCHAR(255), 
   home_title_gr VARCHAR(255), 
   home_content_en TEXT,

@@ -1,15 +1,22 @@
 <script>
 	import { getContext } from 'svelte';
+	import { listAssets } from '../lib/services/asset';
+	import Carousel from './Carousel.svelte';
+	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons';
 	export const data = getContext('settings');
-	const baseCloudinaryUrl = 'https://res.cloudinary.com/devaloupis/image/upload/v1624560792'; ///process.env.REACT_APP_CLOUDINARY_BASE_URL;s
 </script>
 
-<img
-	class="h-80 w-full object-cover"
-	src={`${baseCloudinaryUrl}/${data.homeImage}`}
-	alt={data.homeTitleEn}
-/>
+<h1 class="p-5 text-center">{data.homeTitleEn}</h1>
+{#await listAssets('home')}
+	<div class="flex flex-col overflow-hidden w-full h-80 " />
+{:then images}
+	<Carousel images={JSON.parse(images.data)}>
+		<span slot="left-control"><ChevronLeftIcon size="20" /></span>
+		<span slot="right-control"><ChevronRightIcon size="20" /></span>
+	</Carousel>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 <div class="p-10">
-	<h1>{data.homeTitleEn}</h1>
 	{@html data.homeContentEn}
 </div>
