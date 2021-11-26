@@ -4,7 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import AssetContainer from '../../../common/media/asset/AssetContainer';
+import GalleryContainer from '../../../common/media/gallery/GalleryContainer';
+
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = React.lazy(() => import('react-quill'));
@@ -34,8 +35,6 @@ const formats = [
 ];
 
 const Home = ({
-  imagePublicId,
-  setImagePublicId,
   titleEn,
   setTitleEn,
   titleGr,
@@ -58,17 +57,16 @@ const Home = ({
 
     [] // TODO: fix eslint error somehow
   );
-  console.log({ imagePublicId });
+
   return (
     <>
       <div style={{ marginBottom: '15px' }}>
         <Typography variant="h6">Home</Typography>
       </div>
-      <AssetContainer
+      <GalleryContainer
         url="home"
-        publicId={imagePublicId || ''}
+        allowMultipleAssets
         acceptedFileTypes="image/jpeg,image/png,image/gif"
-        updateEntity={setImagePublicId}
       />
       <div style={{ marginBottom: '10px' }} />
       <Grid container spacing={3}>
@@ -133,8 +131,6 @@ const Home = ({
 };
 
 Home.propTypes = {
-  imagePublicId: PropTypes.string,
-  setImagePublicId: PropTypes.func,
   titleEn: PropTypes.string,
   setTitleEn: PropTypes.func,
   titleGr: PropTypes.string,

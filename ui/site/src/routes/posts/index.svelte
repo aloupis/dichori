@@ -35,7 +35,6 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/env';
 	import PostsContainer from './PostsContainer.svelte';
-	export let posts;
 	export let total;
 
 	let limit = 6;
