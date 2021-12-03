@@ -23,7 +23,6 @@ const Settings = ({ history }) => {
             home_title_en: settings.home_title_en,
             home_content_gr: settings.home_content_gr,
             home_content_en: settings.home_content_en,
-            home_image_public_id: settings.home_image_public_id,
           },
         },
         refetchQueries: [`SETTINGS_QUERY`],

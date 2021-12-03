@@ -1,5 +1,5 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_GATEWAY
@@ -10,7 +10,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext(async (_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   // return the headers to the context so httpLink can read them
   return {
     headers: {
@@ -23,6 +23,6 @@ const authLink = setContext(async (_, { headers }) => {
 export const getApolloClient = () =>
   new ApolloClient({
     link: authLink.concat(httpLink),
-    credentials: "include",
+    credentials: 'include',
     cache: new InMemoryCache(),
   });

@@ -39,6 +39,7 @@ const typeDefs = gql`
     title_gr: String
     content_en: String
     content_gr: String
+    image_public_id: String
     url: String
   }
   input EventInput {

@@ -18,10 +18,12 @@ const resolvers = {
           orderBy && orderBy.field ? orderBy.field : 'post.id',
           orderBy && orderBy.direction ? orderBy.direction : 'desc'
         );
+
         return posts.map((post) =>
           transformEntity(post, 'post', postRelations)
         );
       } catch (err) {
+        console.log('bbbs');
         Sentry.captureException(err);
         return err;
       }

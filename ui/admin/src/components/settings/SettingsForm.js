@@ -20,10 +20,6 @@ const SettingsForm = ({ settings, onSave, onError, history }) => {
   const [header, setHeader] = useState(JSON.parse(settings.header_menu_config));
   const [footer, setFooter] = useState(JSON.parse(settings.footer_menu_config));
 
-  const [imagePublicId, setImagePublicId] = useState(
-    settings.home_image_public_id || ''
-  );
-
   const [titleEn, setTitleEn] = useState(settings.home_title_en || '');
   const [titleGr, setTitleGr] = useState(settings.home_title_gr || '');
 
@@ -39,15 +35,12 @@ const SettingsForm = ({ settings, onSave, onError, history }) => {
       home_title_gr: titleGr,
       home_content_en: contentEn,
       home_content_gr: contentGr,
-      home_image_public_id: imagePublicId,
     });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <Home
-        imagePublicId={imagePublicId}
-        setImagePublicId={setImagePublicId}
         titleEn={titleEn}
         setTitleEn={setTitleEn}
         titleGr={titleGr}
