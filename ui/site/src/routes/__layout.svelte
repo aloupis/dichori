@@ -32,7 +32,6 @@
 	setContext('settings', data);
 </script>
 
-<!-- <Header items={data.header.items} answer={42}/> -->
 <div class="flex flex-col h-screen">
 	<nav class="bg-green-900 shadow-lg">
 		<div class="container mx-auto">

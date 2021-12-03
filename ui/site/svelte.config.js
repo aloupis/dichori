@@ -5,9 +5,7 @@ import 'dotenv/config';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			out: 'build'
-		}),
+		adapter: adapter({ env: { port: process.env.PORT } }),
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte'
 	},

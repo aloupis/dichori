@@ -21,6 +21,9 @@ const ALLOWED_DOMAINS = [
   SITE_HOST,
   HOST,
   'http://localhost:5000',
+  'http://localhost:3000',
+  'http://localhost:7000',
+  undefined,
 ];
 
 app.use(

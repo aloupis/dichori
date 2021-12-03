@@ -30,8 +30,7 @@
 </script>
 
 <script>
-	import fromUnixTime from 'date-fns/fromUnixTime';
-	import { format } from 'date-fns';
+	import { fromUnixTime, format } from 'date-fns';
 	import LatestPosts from '../common/LatestPosts.svelte';
 	export let post;
 	export let latestPosts;

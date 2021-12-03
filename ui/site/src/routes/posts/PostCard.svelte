@@ -1,6 +1,5 @@
 <script>
-	import fromUnixTime from 'date-fns/fromUnixTime';
-	import { format } from 'date-fns';
+	import { fromUnixTime, format } from 'date-fns';
 	export let post;
 	const baseCloudinaryUrl = 'https://res.cloudinary.com/devaloupis/image/upload/v1624560792'; ///process.env.REACT_APP_CLOUDINARY_BASE_URL;s
 </script>

@@ -1,7 +1,9 @@
 import fetch from 'node-fetch';
-import { ApolloClient, HttpLink } from '@apollo/client/core/core.cjs.js';
+import { ApolloClient } from '@apollo/client/core/core.cjs.js';
+import  {HttpLink}  from '@apollo/client/link/http/http.cjs.js';
 import { InMemoryCache } from '@apollo/client/cache/cache.cjs.js';
 
+const URL ='https://dichori-gateway.herokuapp.com/graphql'
 class Client {
 	constructor() {
 		if (Client._instance) {
@@ -14,7 +16,7 @@ class Client {
 
 	setupClient() {
 		const link = new HttpLink({
-			uri: 'http://localhost:7000/graphql',
+			uri: URL,
 			fetch
 		});
 

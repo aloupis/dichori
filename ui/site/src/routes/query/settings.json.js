@@ -34,6 +34,7 @@ export const post = async () => {
 			}
 		};
 	} catch (err) {
+		console.log({err})
 		return {
 			status: 500,
 			error: 'Error retrieving data'
