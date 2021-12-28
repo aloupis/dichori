@@ -1,9 +1,7 @@
 import { fromUnixTime, format } from 'date-fns';
 import Link from 'next/link'
 
-const baseCloudinaryUrl = 'https://res.cloudinary.com/devaloupis/image/upload/v1624560792'; ///process.env.REACT_APP_CLOUDINARY_BASE_URL;s
-// import LatestPosts from './LatestPosts';
-
+const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL;
 export default function Post({post}) {
     console.log({post})
 return <div className="py-5 px-10 grid grid-cols-8 gap-16">

@@ -1,5 +1,5 @@
 import { fromUnixTime, format } from 'date-fns';
-const baseCloudinaryUrl = 'https://res.cloudinary.com/devaloupis/image/upload/v1624560792'; ///process.env.REACT_APP_CLOUDINARY_BASE_URL;s
+const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL;
 
 export default function PostsContainer({post}) {
 return <div className="rounded overflow-hidden shadow-lg bg-gray-50">
