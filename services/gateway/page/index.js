@@ -22,6 +22,7 @@ const resolvers = {
           transformEntity(page, 'page', pageRelations)
         );
       } catch (err) {
+        console.log({ err });
         Sentry.captureException(err);
         return err;
       }

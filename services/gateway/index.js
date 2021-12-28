@@ -23,7 +23,6 @@ const ALLOWED_DOMAINS = [
   'http://localhost:5000',
   'http://localhost:3000',
   'http://localhost:7000',
-  undefined,
 ];
 
 app.use(
@@ -150,7 +149,7 @@ const server = new ApolloServer({
   context,
   cors: false,
 });
-server.applyMiddleware({ app, cors: false });
+server.applyMiddleware({ app, cors: true });
 
 app.listen(PORT, () =>
   console.log(`Gateway service ready at http://${HOST}:${PORT}/`)
