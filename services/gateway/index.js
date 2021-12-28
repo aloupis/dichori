@@ -149,7 +149,7 @@ const server = new ApolloServer({
   context,
   cors: false,
 });
-server.applyMiddleware({ app, cors: true });
+server.applyMiddleware({ app, cors: false });
 
 app.listen(PORT, () =>
   console.log(`Gateway service ready at http://${HOST}:${PORT}/`)
