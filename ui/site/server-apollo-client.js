@@ -2,7 +2,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://dichori-gateway.herokuapp.com/graphql",
+  uri: `${process.env.NEXT_PUBLIC_GATEWAY_SERVER}/graphql`,
   cache: new InMemoryCache(),
 });
 
