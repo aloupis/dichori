@@ -1,7 +1,7 @@
 import { fromUnixTime, format } from 'date-fns';
 import Link from 'next/link'
 
-const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL;
+const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || 'https://dichori-media.herokuapp.com'; 
 export default function Post({post}) {
     console.log({post})
 return <div className="py-5 px-10 grid grid-cols-8 gap-16">
