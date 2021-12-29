@@ -1,4 +1,4 @@
-const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || 'https://dichori-media.herokuapp.com'; 
+const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || 'https://res.cloudinary.com/dichori/image/upload/v1625418099/'
 import Link from 'next/link'
 
 export default function Page({page}) {

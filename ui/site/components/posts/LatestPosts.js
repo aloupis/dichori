@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || 'https://dichori-media.herokuapp.com'; 
+const baseCloudinaryUrl = process.env.NEXT_PUBLIC_CLOUDINARY_BASE_URL || 'https://res.cloudinary.com/dichori/image/upload/v1625418099/'; 
 
 export default function LatestPosts({posts}) {
 return <><div className="p-5 rounded border border-green-900 bg-gray-50">
