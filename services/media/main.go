@@ -178,14 +178,11 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*", "https://dichori-admin.herokuapp.com", "dichori-admin.herookuapp.com"},
+		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "HEAD", "OPTIONS", "POST", "PUT"},
-		AllowHeaders:     []string{"Access-Control-Allow-Origin", "sentry-trace", "pragma", "authorization", "Access-Control-Allow-Headers", "Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Access-Control-Allow-Origin"},
+		AllowHeaders:     []string{"sentry-trace", "pragma", "authorization", "Access-Control-Allow-Headers", "Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Access-Control-Allow-Origin"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
-		AllowOriginFunc: func(origin string) bool {
-			return origin == "https://dichori-admin.herokuapp.com" || origin == "http://patmos-nginx.herokuapp.com" || origin == "patmos-nginx.herokuapp.com" || origin == "https://patmos-site.herokuapp.com" || origin == "http://dichori-admin.herookuapp.com" || origin == "dichori-admin.herookuapp.com"
-		},
 	}))
 
 	// CORS for https://foo.com and https://github.com origins, allowing:
