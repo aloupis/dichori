@@ -178,7 +178,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
+		AllowOrigins:     []string{"*", "https://dichori-admin.herokuapp.com", "dichori-admin.herookuapp.com"},
 		AllowMethods:     []string{"GET", "HEAD", "OPTIONS", "POST", "PUT"},
 		AllowHeaders:     []string{"sentry-trace", "pragma", "authorization", "Access-Control-Allow-Headers", "Origin", "Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Access-Control-Allow-Origin"},
 		ExposeHeaders:    []string{"Content-Length"},
