@@ -26,14 +26,17 @@ export const uploadAssets = (files, path) => {
   });
 };
 
-export const deleteAsset = async (publicId) => {
-  const formData = new FormData();
-  formData.append('key', publicId);
-  return axios({
-    url: `${url}/delete`,
-    method: 'post',
-    data: formData,
-  });
+export const deleteAsset = (publicId) => {
+  if (publicId) {
+    const formData = new FormData();
+    formData.append('key', publicId);
+
+    return axios({
+      url: `${url}/delete`,
+      method: 'post',
+      data: formData,
+    });
+  }
 };
 
 export const getAsset = (publicId) => {
